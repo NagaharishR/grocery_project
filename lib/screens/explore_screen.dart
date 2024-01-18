@@ -17,6 +17,7 @@ List<Color> gridColors = [
   Color(0xff836AF6),
   Color(0xffD73B77),
   Color(0xff53B175),
+  Color(0xffF8A44C),
 ];
 
 class ExploreScreen extends StatelessWidget {

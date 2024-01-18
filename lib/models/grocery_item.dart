@@ -97,6 +97,44 @@ var rice = [
       price: 100,
       imagePath: "assets/images/flour_images/oil.png"),
 ];
+var oil = [
+  GroceryItem(
+      id: 7,
+      name: "Wheatflour",
+      description: "500gm, Price",
+      price: 25,
+      imagePath: "assets/images/flour_images/attaflour.png"),
+  GroceryItem(
+      id: 8,
+      name: "Cornflour",
+      description: "500gm, Price",
+      price: 20,
+      imagePath: "assets/images/flour_images/cornflour.png"),
+  GroceryItem(
+      id: 9,
+      name: "Rice",
+      description: "1Kg, Price",
+      price: 50,
+      imagePath: "assets/images/flour_images/rice.png"),
+  GroceryItem(
+      id: 10,
+      name: "Karuppukavuni Rice",
+      description: "1kg, Price",
+      price: 100,
+      imagePath: "assets/images/flour_images/karuppukavunirice.png"),
+  GroceryItem(
+      id: 11,
+      name: "Dal",
+      description: "500gm, Price",
+      price: 50,
+      imagePath: "assets/images/flour_images/dal.png"),
+  GroceryItem(
+      id: 12,
+      name: "Oil",
+      description: "1L, Price",
+      price: 100,
+      imagePath: "assets/images/flour_images/oil.png"),
+];
 var masalas = [
   GroceryItem(
       id: 13,
@@ -287,63 +325,63 @@ var soapshampoo = [
   GroceryItem(
       id: 42,
       name: "Babysoap",
-      description: "330ml, Price",
-      price: 4.99,
+      description: "1pkt, Price",
+      price: 48,
       imagePath: "assets/images/soap_images/babysoap.png"),
   GroceryItem(
       id: 43,
       name: "Handwash",
-      description: "330ml, Price",
-      price: 4.99,
+      description: "500ml, Price",
+      price: 49,
       imagePath: "assets/images/soap_images/handwash.png"),
   GroceryItem(
       id: 44,
       name: "Lotion",
-      description: "330ml, Price",
-      price: 4.99,
+      description: "340ml, Price",
+      price: 69,
       imagePath: "assets/images/soap_images/lotion.png"),
   GroceryItem(
       id: 45,
       name: "Shampoo",
-      description: "330ml, Price",
-      price: 4.99,
+      description: "100ml, Price",
+      price: 50,
       imagePath: "assets/images/soap_images/shampoo.png"),
   GroceryItem(
       id: 46,
       name: "Soap",
-      description: "330ml, Price",
-      price: 4.99,
+      description: "1pkt, Price",
+      price: 40,
       imagePath: "assets/images/soap_images/soap.png"),
 ];
 var cleaningEssentials = [
   GroceryItem(
       id: 47,
       name: "Harpic",
-      description: "330ml, Price",
-      price: 4.99,
+      description: "500ml, Price",
+      price: 70,
       imagePath: "assets/images/cleaningessential/cleaning1.jpeg"),
   GroceryItem(
       id: 48,
       name: "Matic",
       description: "330ml, Price",
-      price: 4.99,
+      price: 49,
       imagePath: "assets/images/cleaningessential/cleaning2.png"),
   GroceryItem(
       id: 49,
       name: "Pril",
-      description: "330ml, Price",
-      price: 4.99,
+      description: "250ml, Price",
+      price: 40,
       imagePath: "assets/images/cleaningessential/cleaning3.png"),
   GroceryItem(
       id: 50,
       name: "Domax",
-      description: "330ml, Price",
-      price: 4.99,
+      description: "500ml, Price",
+      price: 69,
       imagePath: "assets/images/cleaningessential/cleaning4.png"),
   GroceryItem(
       id: 51,
       name: "lizol",
-      description: "330ml, Price",
-      price: 4.99,
+      description: "300ml, Price",
+      price: 45,
       imagePath: "assets/images/cleaningessential/cleaning5.png"),
 ];

@@ -8,9 +8,14 @@ class CategoryItem {
 
 var categoryItemsDemo = [
   CategoryItem(
-    name: "Atta, Rice, Oil& Dal",
+    name: "Atta, Rice",
     imagePath: "assets/images/categories_images/rice&oil.png",
   ),
+  CategoryItem(
+    name: "Oil& Dal",
+    imagePath: "assets/images/categories_images/rice&oil.png",
+  ),
+
   CategoryItem(
     name: "Masala& Dryfruits",
     imagePath: "assets/images/categories_images/masala&dryfruit.png",

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:grocery_app/common_widgets/app_button.dart';
 import 'package:grocery_app/common_widgets/app_text.dart';
 import 'package:grocery_app/models/grocery_item.dart';
+import 'package:grocery_app/screens/cart/cart_screen.dart';
 import 'package:grocery_app/widgets/item_counter_widget.dart';
 
 import 'favourite_toggle_icon_widget.dart';
@@ -58,7 +59,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                         ),
                         Spacer(),
                         Text(
-                          "\Rs${getTotalPrice().toStringAsFixed(2)}",
+                          "\Rs ${getTotalPrice().toStringAsFixed(2)}",
                           style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
@@ -78,9 +79,11 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                       customWidget: ratingWidget(),
                     ),
                     Spacer(),
-                    AppButton(
-                      label: "Add To Basket",
-                    ),
+                    ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>CartScreen()));
+                        },
+                        child: Text("Add to Basket")),
                     Spacer(),
                   ],
                 ),
