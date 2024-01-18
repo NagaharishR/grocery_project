@@ -16,12 +16,12 @@ class CategoryItemsScreen extends StatelessWidget {
     List<GroceryItem> categoryProducts = [];
 
     Map<String, List<GroceryItem>> categoryMap = {
-      "Flour, Rice": rice,
-      "Oil& Dal" : oil,
-      "Masala & Dryfruits": masalas,
-      "Chips": Chips,
+      "Oil& Dal": oil,
+      "Flour&Rice": flour,
+      "Masala": masala,
       "Packaged Foods": foods,
-      "Tea & Coffee": teacoffee,
+      "Chips" :chips,
+      "Tea and Coffee" : teaandcoffee,
       "Biscuits & Cookies": biscuits,
       "Makeup & Skincare": makeups,
       "Bath, Body, Hair": soapshampoo,

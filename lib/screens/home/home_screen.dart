@@ -171,7 +171,7 @@ class HomeScreen extends StatelessWidget {
           width: 8,
         ),
         Text(
-          "Khartoum,Sudan",
+          "Bengaluru, India",
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         )
       ],

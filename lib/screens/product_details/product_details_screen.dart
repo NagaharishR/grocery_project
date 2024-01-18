@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_app/common_widgets/app_button.dart';
 import 'package:grocery_app/common_widgets/app_text.dart';
 import 'package:grocery_app/models/grocery_item.dart';
-import 'package:grocery_app/screens/cart/cart_screen.dart';
 import 'package:grocery_app/widgets/item_counter_widget.dart';
 
 import 'favourite_toggle_icon_widget.dart';
@@ -19,6 +17,7 @@ class ProductDetailsScreen extends StatefulWidget {
 
 class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   int amount = 1;
+  List<GroceryItem> selectedItems = [];
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +36,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                       title: Text(
                         widget.groceryItem.name,
                         style: TextStyle(
-                            fontSize: 24, fontWeight: FontWeight.bold),
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       subtitle: AppText(
                         text: widget.groceryItem.description,
@@ -71,8 +72,10 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                     Divider(thickness: 1),
                     getProductDataRowWidget("Product Details"),
                     Divider(thickness: 1),
-                    getProductDataRowWidget("Nutritions",
-                        customWidget: nutritionWidget()),
+                    getProductDataRowWidget(
+                      "Nutritions",
+                      customWidget: nutritionWidget(),
+                    ),
                     Divider(thickness: 1),
                     getProductDataRowWidget(
                       "Review",
@@ -80,10 +83,17 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                     ),
                     Spacer(),
                     ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>CartScreen()));
-                        },
-                        child: Text("Add to Basket")),
+                      onPressed: () {
+                        // Add the selected item to the list
+                        selectedItems.add(widget.groceryItem);
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text('Item added to the cart'),
+                          ),
+                        );
+                      },
+                      child: Text("Add to Basket"),
+                    ),
                     Spacer(),
                   ],
                 ),
@@ -107,14 +117,15 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
           bottomRight: Radius.circular(25),
         ),
         gradient: new LinearGradient(
-            colors: [
-              const Color(0xFF3366FF).withOpacity(0.1),
-              const Color(0xFF3366FF).withOpacity(0.09),
-            ],
-            begin: const FractionalOffset(0.0, 0.0),
-            end: const FractionalOffset(0.0, 1.0),
-            stops: [0.0, 1.0],
-            tileMode: TileMode.clamp),
+          colors: [
+            const Color(0xFF3366FF).withOpacity(0.1),
+            const Color(0xFF3366FF).withOpacity(0.09),
+          ],
+          begin: const FractionalOffset(0.0, 0.0),
+          end: const FractionalOffset(0.0, 1.0),
+          stops: [0.0, 1.0],
+          tileMode: TileMode.clamp,
+        ),
       ),
       child: Hero(
         tag: "GroceryItem:" +

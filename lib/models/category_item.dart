@@ -8,20 +8,21 @@ class CategoryItem {
 
 var categoryItemsDemo = [
   CategoryItem(
-    name: "Atta, Rice",
-    imagePath: "assets/images/categories_images/rice&oil.png",
-  ),
-  CategoryItem(
     name: "Oil& Dal",
     imagePath: "assets/images/categories_images/rice&oil.png",
   ),
 
   CategoryItem(
-    name: "Masala& Dryfruits",
+    name: "Masala",
     imagePath: "assets/images/categories_images/masala&dryfruit.png",
   ),
   CategoryItem(
-    name: "Munchies&Chips",
+    name: "Flour&Rice",
+    imagePath: "assets/images/categories_images/rice&oil.png",
+  ),
+
+  CategoryItem(
+    name: "Chips",
     imagePath: "assets/images/categories_images/chips.png",
   ),
   CategoryItem(
@@ -29,7 +30,7 @@ var categoryItemsDemo = [
     imagePath: "assets/images/categories_images/packagefoods.png",
   ),
   CategoryItem(
-    name: "Tea, Coffee & More",
+    name: "Tea and Coffee",
     imagePath: "assets/images/categories_images/tea&coffee.png",
   ),
   CategoryItem(

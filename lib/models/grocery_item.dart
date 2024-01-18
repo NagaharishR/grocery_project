@@ -59,44 +59,6 @@ var bestSelling = [demoItems[2], demoItems[3]];
 
 var groceries = [demoItems[4], demoItems[5]];
 
-var rice = [
-  GroceryItem(
-      id: 7,
-      name: "Wheatflour",
-      description: "500gm, Price",
-      price: 25,
-      imagePath: "assets/images/flour_images/attaflour.png"),
-  GroceryItem(
-      id: 8,
-      name: "Cornflour",
-      description: "500gm, Price",
-      price: 20,
-      imagePath: "assets/images/flour_images/cornflour.png"),
-  GroceryItem(
-      id: 9,
-      name: "Rice",
-      description: "1Kg, Price",
-      price: 50,
-      imagePath: "assets/images/flour_images/rice.png"),
-  GroceryItem(
-      id: 10,
-      name: "Karuppukavuni Rice",
-      description: "1kg, Price",
-      price: 100,
-      imagePath: "assets/images/flour_images/karuppukavunirice.png"),
-  GroceryItem(
-      id: 11,
-      name: "Dal",
-      description: "500gm, Price",
-      price: 50,
-      imagePath: "assets/images/flour_images/dal.png"),
-  GroceryItem(
-      id: 12,
-      name: "Oil",
-      description: "1L, Price",
-      price: 100,
-      imagePath: "assets/images/flour_images/oil.png"),
-];
 var oil = [
   GroceryItem(
       id: 7,
@@ -135,7 +97,7 @@ var oil = [
       price: 100,
       imagePath: "assets/images/flour_images/oil.png"),
 ];
-var masalas = [
+var masala = [
   GroceryItem(
       id: 13,
       name: "Chicken Masala",
@@ -160,38 +122,32 @@ var masalas = [
       description: "330ml, Price",
       price: 4.99,
       imagePath: "assets/images/masala_images/garammasala.png"),
-  ];
-var Chips = [
+];
+var flour = [
   GroceryItem(
-      id: 17,
-      name: "Banana Chips",
-      description: "330ml, Price",
-      price: 4.99,
-      imagePath: "assets/images/chips_images/bananachips.png"),
+      id: 7,
+      name: "Wheatflour",
+      description: "500gm, Price",
+      price: 25,
+      imagePath: "assets/images/flour_images/attaflour.png"),
   GroceryItem(
-      id: 18,
-      name: "Bingo",
-      description: "330ml, Price",
-      price: 4.99,
-      imagePath: "assets/images/chips_images/bingo.png"),
+      id: 8,
+      name: "Cornflour",
+      description: "500gm, Price",
+      price: 20,
+      imagePath: "assets/images/flour_images/cornflour.png"),
   GroceryItem(
-      id: 19,
-      name: "Diamond Chips",
-      description: "330ml, Price",
-      price: 4.99,
-      imagePath: "assets/images/chips_images/diamondchips.png"),
+      id: 9,
+      name: "Rice",
+      description: "1Kg, Price",
+      price: 50,
+      imagePath: "assets/images/flour_images/rice.png"),
   GroceryItem(
-      id: 20,
-      name: "Lays",
-      description: "330ml, Price",
-      price: 4.99,
-      imagePath: "assets/images/chips_images/lays.png"),
-  GroceryItem(
-      id: 21,
-      name: "Too Yumm",
-      description: "330ml, Price",
-      price: 4.99,
-      imagePath: "assets/images/chips_images/tooyummchips.png"),
+      id: 10,
+      name: "Karuppukavuni Rice",
+      description: "1kg, Price",
+      price: 100,
+      imagePath: "assets/images/flour_images/karuppukavunirice.png"),
 ];
 var foods = [
   GroceryItem(
@@ -225,7 +181,7 @@ var foods = [
       price: 4.99,
       imagePath: "assets/images/beverages_images/pepsi.png"),
 ];
-var teacoffee = [
+var teaandcoffee = [
   GroceryItem(
       id: 27,
       name: "Coffee",
@@ -256,6 +212,38 @@ var teacoffee = [
       description: "330ml, Price",
       price: 4.99,
       imagePath: "assets/images/teacoffee/tea.png"),
+];
+var chips = [
+  GroceryItem(
+      id: 17,
+      name: "Banana Chips",
+      description: "330ml, Price",
+      price: 4.99,
+      imagePath: "assets/images/chips_images/bananachips.png"),
+  GroceryItem(
+      id: 18,
+      name: "Bingo",
+      description: "330ml, Price",
+      price: 4.99,
+      imagePath: "assets/images/chips_images/bingo.png"),
+  GroceryItem(
+      id: 19,
+      name: "Diamond Chips",
+      description: "330ml, Price",
+      price: 4.99,
+      imagePath: "assets/images/chips_images/diamondchips.png"),
+  GroceryItem(
+      id: 20,
+      name: "Lays",
+      description: "330ml, Price",
+      price: 4.99,
+      imagePath: "assets/images/chips_images/lays.png"),
+  GroceryItem(
+      id: 21,
+      name: "Too Yumm",
+      description: "330ml, Price",
+      price: 4.99,
+      imagePath: "assets/images/chips_images/tooyummchips.png"),
 ];
 var biscuits = [
   GroceryItem(
