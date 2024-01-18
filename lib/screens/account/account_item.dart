@@ -9,7 +9,7 @@ List<AccountItem> accountItems = [
   AccountItem("Orders", "assets/icons/account_icons/orders_icon.svg"),
   AccountItem("My Details", "assets/icons/account_icons/details_icon.svg"),
   AccountItem(
-      "Delivery Access", "assets/icons/account_icons/delivery_icon.svg"),
+      "Delivery Address", "assets/icons/account_icons/delivery_icon.svg"),
   AccountItem("Payment Methods", "assets/icons/account_icons/payment_icon.svg"),
   AccountItem("Promo Card", "assets/icons/account_icons/promo_icon.svg"),
   AccountItem(

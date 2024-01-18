@@ -4,7 +4,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:grocery_app/common_widgets/app_text.dart';
 import 'package:grocery_app/helpers/column_with_seprator.dart';
 import 'package:grocery_app/styles/colors.dart';
-
 import 'account_item.dart';
 
 class AccountScreen extends StatelessWidget {
@@ -131,7 +130,7 @@ class AccountScreen extends StatelessWidget {
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
           Spacer(),
-          Icon(Icons.arrow_forward_ios)
+          Icon(Icons.arrow_forward)
         ],
       ),
     );
