@@ -30,7 +30,11 @@ class HomeScreen extends StatelessWidget {
                   SizedBox(
                     height: 15,
                   ),
-                  padded(SearchBarWidget()),
+                  padded(SearchBarWidget(
+                    onSearch: (query) {
+                      print('Search query: $query');
+                    },
+                  )),
                   SizedBox(
                     height: 25,
                   ),

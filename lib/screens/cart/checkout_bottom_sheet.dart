@@ -1,10 +1,15 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:grocery_app/common_widgets/app_button.dart';
-import 'package:grocery_app/common_widgets/app_text.dart';
 
+import '../../common_widgets/app_button.dart';
+import '../../common_widgets/app_text.dart';
 import '../order_failed_dialog.dart';
 
 class CheckoutBottomSheet extends StatefulWidget {
+  final double totalPrice;
+
+  CheckoutBottomSheet({required this.totalPrice});
+
   @override
   _CheckoutBottomSheetState createState() => _CheckoutBottomSheetState();
 }
@@ -18,8 +23,9 @@ class _CheckoutBottomSheetState extends State<CheckoutBottomSheet> {
         vertical: 30,
       ),
       decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+        color: Colors.white,
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
       child: new Wrap(
         children: <Widget>[
           Row(
@@ -55,7 +61,8 @@ class _CheckoutBottomSheetState extends State<CheckoutBottomSheet> {
           getDivider(),
           checkoutRow("Promo Code", trailingText: "Pick Discount"),
           getDivider(),
-          checkoutRow("Total Cost", trailingText: "\Rs 13.97"),
+          checkoutRow("Total Cost",
+              trailingText: "\Rs ${widget.totalPrice.toStringAsFixed(2)}"),
           getDivider(),
           SizedBox(
             height: 30,

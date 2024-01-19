@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:grocery_app/common_widgets/app_text.dart';
 import 'package:grocery_app/helpers/column_with_seprator.dart';
 import 'package:grocery_app/styles/colors.dart';
+import '../welcome_screen.dart';
 import 'account_item.dart';
+import 'account_screen/about.dart';
+import 'account_screen/deliveryaddress.dart';
+import 'account_screen/help.dart';
+import 'account_screen/mydetails.dart';
+import 'account_screen/notification.dart';
+import 'account_screen/orders.dart';
+import 'account_screen/paymentmethods.dart';
+import 'account_screen/promocard.dart';
 
 class AccountScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Container(
-        child: SingleChildScrollView(
+      child: Scaffold(
+        body: SingleChildScrollView(
           child: Column(
             children: [
               SizedBox(
@@ -35,7 +43,7 @@ class AccountScreen extends StatelessWidget {
               Column(
                 children: getChildrenWithSeperator(
                   widgets: accountItems.map((e) {
-                    return getAccountItemWidget(e);
+                    return getAccountItemWidget(context, e);
                   }).toList(),
                   seperator: Divider(
                     thickness: 1,
@@ -45,7 +53,7 @@ class AccountScreen extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              logoutButton(),
+              logoutButton(context),
               SizedBox(
                 height: 20,
               )
@@ -56,7 +64,7 @@ class AccountScreen extends StatelessWidget {
     );
   }
 
-  Widget logoutButton() {
+  Widget logoutButton(BuildContext context) {
     return Container(
       width: double.maxFinite,
       margin: EdgeInsets.symmetric(horizontal: 25),
@@ -95,7 +103,9 @@ class AccountScreen extends StatelessWidget {
             Container()
           ],
         ),
-        onPressed: () {},
+        onPressed: () {
+          _logout(context);
+        },
       ),
     );
   }
@@ -109,30 +119,97 @@ class AccountScreen extends StatelessWidget {
     );
   }
 
-  Widget getAccountItemWidget(AccountItem accountItem) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 15),
-      padding: EdgeInsets.symmetric(horizontal: 25),
-      child: Row(
-        children: [
-          SizedBox(
-            width: 20,
-            height: 20,
-            child: SvgPicture.asset(
-              accountItem.iconPath,
+  Widget getAccountItemWidget(BuildContext context, AccountItem accountItem) {
+    return GestureDetector(
+      onTap: () {
+        _navigateToPage(context, accountItem);
+      },
+      child: Container(
+        margin: EdgeInsets.symmetric(vertical: 15),
+        padding: EdgeInsets.symmetric(horizontal: 25),
+        child: Row(
+          children: [
+            SizedBox(
+              width: 20,
+              height: 20,
+              child: SvgPicture.asset(
+                accountItem.iconPath,
+              ),
             ),
-          ),
-          SizedBox(
-            width: 20,
-          ),
-          Text(
-            accountItem.label,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-          Spacer(),
-          Icon(Icons.arrow_forward)
-        ],
+            SizedBox(
+              width: 20,
+            ),
+            Text(
+              accountItem.label,
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            Spacer(),
+            Icon(Icons.arrow_forward)
+          ],
+        ),
       ),
+    );
+  }
+
+  void _navigateToPage(BuildContext context, AccountItem accountItem) {
+    switch (accountItem.label) {
+      case 'Orders':
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => OrdersPage()),
+        );
+        break;
+      case 'My Details':
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => MyDetailsPage()),
+        );
+        break;
+      case 'Delivery Address':
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => DeliveryAddressPage()),
+        );
+        break;
+      case 'Payment Methods':
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => PaymentMethodsPage()),
+        );
+        break;
+      case 'Promo Card':
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => PromoCardPage()),
+        );
+        break;
+      case 'Notification':
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => NotificationPage()),
+        );
+        break;
+      case 'Help':
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => HelpPage()),
+        );
+        break;
+      case 'About':
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => AboutPage()),
+        );
+        break;
+    }
+  }
+
+  void _logout(BuildContext context) {
+    // Perform logout actions here, such as clearing user session or preferences
+    // After logout, navigate to the WelcomeScreen
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => WelcomeScreen()),
     );
   }
 }

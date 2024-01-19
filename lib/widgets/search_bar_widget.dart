@@ -3,6 +3,10 @@ import 'package:flutter_svg/svg.dart';
 
 class SearchBarWidget extends StatelessWidget {
   final String searchIcon = "assets/icons/search_icon.svg";
+  final TextEditingController _searchController = TextEditingController();
+  final Function(String) onSearch;
+
+  SearchBarWidget({required this.onSearch});
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +28,8 @@ class SearchBarWidget extends StatelessWidget {
           ),
           Expanded(
             child: TextField(
+              controller: _searchController,
+              onChanged: onSearch,
               decoration: InputDecoration(
                 hintText: "Search Store",
                 hintStyle: TextStyle(

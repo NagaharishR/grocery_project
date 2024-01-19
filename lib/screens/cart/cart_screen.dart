@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_app/common_widgets/app_button.dart';
+import 'package:grocery_app/common_widgets/app_text.dart';
 import 'package:grocery_app/helpers/column_with_seprator.dart';
 import 'package:grocery_app/models/grocery_item.dart';
 import 'package:grocery_app/widgets/chart_item_widget.dart';
@@ -7,6 +8,10 @@ import 'package:grocery_app/widgets/chart_item_widget.dart';
 import 'checkout_bottom_sheet.dart';
 
 class CartScreen extends StatelessWidget {
+  final List<GroceryItem> selectedItems;
+
+  CartScreen({required this.selectedItems});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,9 +30,9 @@ class CartScreen extends StatelessWidget {
                 height: 20,
               ),
               Column(
-                children: getChildrenWithSeperator(
+                children: getChildrenWithSeparator(
                   addToLastChild: false,
-                  widgets: demoItems.map((e) {
+                  widgets: selectedItems.map((e) {
                     return Container(
                       padding: EdgeInsets.symmetric(
                         horizontal: 25,
@@ -38,7 +43,7 @@ class CartScreen extends StatelessWidget {
                       ),
                     );
                   }).toList(),
-                  seperator: Padding(
+                  separator: Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 25,
                     ),
@@ -59,6 +64,25 @@ class CartScreen extends StatelessWidget {
     );
   }
 
+  List<Widget> getChildrenWithSeparator({
+    required bool addToLastChild,
+    required List<Widget> widgets,
+    required Widget separator,
+  }) {
+    List<Widget> children = [];
+    int lastIndex = widgets.length - 1;
+
+    for (int i = 0; i < widgets.length; i++) {
+      children.add(widgets[i]);
+
+      if (addToLastChild || i < lastIndex) {
+        children.add(separator);
+      }
+    }
+
+    return children;
+  }
+
   Widget getCheckoutButton(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 25, vertical: 20),
@@ -75,6 +99,7 @@ class CartScreen extends StatelessWidget {
   }
 
   Widget getButtonPriceWidget() {
+    double totalPrice = calculateTotalPrice(selectedItems);
     return Container(
       padding: EdgeInsets.all(2),
       decoration: BoxDecoration(
@@ -82,19 +107,29 @@ class CartScreen extends StatelessWidget {
         borderRadius: BorderRadius.circular(4),
       ),
       child: Text(
-        "\Rs 12.96",
+        "\Rs ${totalPrice.toStringAsFixed(2)}",
         style: TextStyle(fontWeight: FontWeight.w600),
       ),
     );
   }
 
+  double calculateTotalPrice(List<GroceryItem> items) {
+    double totalPrice = 0.0;
+    for (var item in items) {
+      totalPrice += item.price;
+    }
+    return totalPrice;
+  }
+
   void showBottomSheet(context) {
     showModalBottomSheet(
-        context: context,
-        isScrollControlled: true,
-        backgroundColor: Colors.transparent,
-        builder: (BuildContext bc) {
-          return CheckoutBottomSheet();
-        });
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (BuildContext bc) {
+        return CheckoutBottomSheet(
+            totalPrice: calculateTotalPrice(selectedItems));
+      },
+    );
   }
 }

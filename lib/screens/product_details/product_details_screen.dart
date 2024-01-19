@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:grocery_app/common_widgets/app_text.dart';
 import 'package:grocery_app/models/grocery_item.dart';
 import 'package:grocery_app/widgets/item_counter_widget.dart';
-
+import '../cart/cart_screen.dart';
 import 'favourite_toggle_icon_widget.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
@@ -25,7 +25,37 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            getImageHeaderWidget(),
+            Container(
+              height: 250,
+              padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+              width: double.maxFinite,
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(25),
+                  bottomRight: Radius.circular(25),
+                ),
+                gradient: new LinearGradient(
+                  colors: [
+                    const Color(0xFF3366FF).withOpacity(0.1),
+                    const Color(0xFF3366FF).withOpacity(0.09),
+                  ],
+                  begin: const FractionalOffset(0.0, 0.0),
+                  end: const FractionalOffset(0.0, 1.0),
+                  stops: [0.0, 1.0],
+                  tileMode: TileMode.clamp,
+                ),
+              ),
+              child: Hero(
+                tag: "GroceryItem:" +
+                    widget.groceryItem.name +
+                    "-" +
+                    (widget.heroSuffix ?? ""),
+                child: Image(
+                  image: AssetImage(widget.groceryItem.imagePath),
+                ),
+              ),
+            ),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
@@ -69,38 +99,37 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                       ],
                     ),
                     Spacer(),
-                    Divider(thickness: 1),
-                    getProductDataRowWidget("Product Details"),
-                    Divider(thickness: 1),
-                    getProductDataRowWidget(
-                      "Nutritions",
-                      customWidget: nutritionWidget(),
-                    ),
-                    Divider(thickness: 1),
-                    getProductDataRowWidget(
-                      "Review",
-                      customWidget: ratingWidget(),
-                    ),
-                    Spacer(),
                     ElevatedButton(
                       onPressed: () {
-                        // Add the selected item to the list
-                        selectedItems.add(widget.groceryItem);
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text('Item added to the cart'),
-                          ),
-                        );
+                        _addToBasket(context);
                       },
                       child: Text("Add to Basket"),
                     ),
                     Spacer(),
+                    Divider(thickness: 1),
                   ],
                 ),
               ),
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  void _addToBasket(BuildContext context) {
+    // Add the selected item to the list
+    selectedItems.add(widget.groceryItem);
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Item added to the cart'),
+      ),
+    );
+    // Navigate to the CartScreen with the selected items
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => CartScreen(selectedItems: selectedItems),
       ),
     );
   }
